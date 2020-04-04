@@ -1,0 +1,245 @@
+
+# coding: utf-8
+
+# In[ ]:
+
+
+#walter and cheese
+
+
+try:
+    for _ in range(int(input())):
+        n=int(input())
+        a=list(map(int,input().split()))
+        b=list(map(int,input().split()))
+        x=max(a)
+        y=max(b)
+        if(x!=y):
+            print("YES")
+        else:
+            print("NO")
+    
+    
+    
+except:
+    pass
+
+
+# In[ ]:
+
+
+#another game of numbers
+
+try:
+    for _ in range(int(input())):
+        a,b=map(int,input().split())
+        y=list(bin(b).replace("0b",""))
+        x=list(bin(a).replace("0b",""))
+        if(b>a):
+            k=len(y)-len(x)
+            for _ in range(k):
+                x.insert(0,"0")
+        else:
+            k=len(x)-len(y)
+            for _ in range(k):
+                y.insert(0,"0")
+        xor=a^b
+        shi=0
+        ind=0
+        for _ in range(len(y)-1):
+            k=y.pop(-1)
+            y.insert(0,k)
+            ind+=1
+            lll=(int("".join(x),2))^(int("".join(y),2))
+            if(lll>xor):
+                xor=lll
+                shi=ind
+        print(shi,xor)
+            
+        
+                
+    
+except:
+    pass
+
+
+# In[ ]:
+
+
+#partial (A lot pf cars)
+
+try:
+# if(True):
+    for _ in range(int(input())):
+        m,n=map(int,input().split())
+        c=[]
+        coun=0
+        for i in range(m):
+            k=list(input().split())
+            co=0
+            k.append(-1)
+            k.append(-1)
+            for j in range(n):
+                if(k[j]=="P"):
+                    co+=1
+                    if(co==1):
+                        k[-2]=j
+                    k[-1]=j
+            c.append(k)
+        if(m==2):
+            if(c[1][-1]==-1):
+                coun=c[0][-1]-c[0][-2]
+            elif(c[0][-1]==-1):
+                coun=c[1][-1]-c[1][-2]
+            else:
+                coun=c[0][-1]-c[0][-2]
+                if(c[1][-1]>c[0][-1]):
+                    coun+=c[1][-1]-c[0][-1]
+                else:
+                    coun+=c[0][-1]-c[1][-1]
+                coun+=c[1][-1]-c[1][-2]+1
+            print(coun)
+        else:
+            coun=c[0][-1]-c[0][-2]
+            print(coun)
+            
+except:
+    pass
+        
+
+
+# In[ ]:
+
+
+# a lot of car another try
+try:
+    test=int(input())
+    while(test!=0):
+
+
+        l=list(map(int,input().split()))
+        m=l[0]
+        lenn=l[1]
+        n=l[1]
+        arrayl=[]
+        arrayr=[]
+        
+        while(m!=0):
+            check=list(map(str,input().split()))
+            c=0
+            
+            for i in range(0,n):
+                c=c+1
+                if(check[i]=='P'):
+                    arrayl.append(i+1)
+                    break
+                if(c==lenn):
+                    arrayl.append(-1)
+                    arrayr.append(-1)
+                    c=0
+                 
+                                
+                                                
+
+                    
+                    
+                    
+            for j in range(n-1,-1,-1):
+                if(check[j]=='P'):
+    
+                    arrayr.append(j+1)
+                    break
+            m=m-1
+            
+    
+    
+        m=lenn          
+        sum=0
+        for z in range(0,m):    #m krna h yha
+            a=max(arrayr[z],arrayl[z])
+            b=min(arrayr[z],arrayl[z])
+            sum=sum + (a-b)
+    
+    
+    
+        #sum=sum+(m-(floor+1))
+        #m krna h yha
+        floor=0
+        for g in range(m):
+            if(arrayl[g]==-1):
+                floor=g+1
+                
+    
+    
+    
+    
+        for q in range(0,m-1):     #m-1 krna h
+            if(arrayl[q]==-1):
+                continue
+                
+        arrayll=[]
+        for i in arrayl:
+            if(i!=-1):
+                arrayll.append(i)
+                
+        arrayrr=[]
+        for i in arrayr:
+            if(i!=-1):
+                arrayrr.append(i)
+        
+            
+            
+            
+        for q in range(0,m-1):     #m-1 krna h
+            if(q%2!=0):
+                ma=max(arrayll[q],arrayll[q+1])
+                mi=min(arrayll[q],arrayll[q+1])
+                sum=sum+(ma-mi)
+            if(q%2==0):
+                mar=max(arrayrr[q],arrayrr[q+1])
+                mir=min(arrayrr[q],arrayrr[q+1])
+                sum=sum+(mar-mir)
+        
+        sum=sum-floor
+        sum=sum+ (m -(floor+1))
+        print(sum)
+        test=test-1
+except:
+    pass
+
+
+# In[ ]:
+
+
+#corona in korananagar
+try:
+# if(True):
+    for _ in range(int(input())):
+        n=int(input())
+        st=list(input())
+        d=int(input())
+        p=list(map(int,input().split()))
+        c=0
+        
+        for i in range(d):
+#             print(s11,"fi")
+            st.insert(p[i]-1+i,"|")
+            
+            m=[]
+            for j in range(len(st)):
+                if(st[j]=="1"):
+                    m.append(j)
+            c=len(m)
+            for j in m:    
+                if(j!=0 and st[j-1]=="0"):
+                    st[j-1]="1"
+                    c+=1
+                if(j!=len(st)-1 and st[j+1]=="0"):
+                    st[j+1]="1"
+                    c+=1
+                        
+        print(c)
+        
+except:
+    pass
+
